@@ -1,7 +1,8 @@
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import Loader from "./Loader";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TransactionContext } from "../context/TransactionContext";
 
 const commonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-white";
@@ -18,10 +19,13 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 );
 
 const Welcome = () => {
+  const { value } = useContext(TransactionContext);
   const [isLoading, setIsLoading] = useState(false);
 
   const connectWallet = () => {};
   const handleSubmit = () => {};
+
+  console.log(value);
   return (
     <div className="w-full flex justify-center items-center">
       <div className="flex flex-col lg:flex-row items-start justify-between md:p-20 py-12 px-4">
